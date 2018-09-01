@@ -1,10 +1,9 @@
 package board;
 
+import board.Utils.CustomOutputStream;
+import board.Utils.CustomPrintStream;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -23,29 +22,7 @@ public class BoardPrinterTest {
 
         boardPrinter.printBoard(board);
 
-        assertEquals("Contents should be equals", "", printStream.content);
+        assertEquals("Contents should be equals", "", printStream.getContent());
     }
 
-    private class CustomPrintStream extends PrintStream{
-        private String content;
-
-        CustomPrintStream(OutputStream out) {
-            super(out);
-            content = "";
-        }
-
-        @Override
-        public void print(String s) {
-            content += s;
-        }
-
-        @Override
-        public void println() {
-            content += "\n";
-        }
-    }
-
-    private class CustomOutputStream extends OutputStream {
-        public void write(int b) throws IOException {}
-    }
 }
