@@ -1,28 +1,44 @@
 package board;
 
+import board.Utils.BoardsManager;
 import board.Utils.CustomOutputStream;
 import board.Utils.CustomPrintStream;
+import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class BoardPrinterTest {
 
-    @Test
-    public void checkPrintCorrectness(){
-        CustomPrintStream printStream = new CustomPrintStream(new CustomOutputStream());
-        BoardPrinter boardPrinter = new BoardPrinter(printStream);
+    private BoardPrinter boardPrinter;
+    private CustomPrintStream printStream;
 
-        ArrayList<Collection<Boolean>> arrayList = new ArrayList<>();
-
-        Board board = new Board(arrayList);
-
-        boardPrinter.printBoard(board);
-
-        assertEquals("Contents should be equals", "", printStream.getContent());
+    @Before
+    public void setUp(){
+        CustomOutputStream out = new CustomOutputStream();
+        printStream = new CustomPrintStream(out);
+        boardPrinter = new BoardPrinter(printStream);
     }
 
+    @Test
+    public void checkPrintCorrectnessForEmptyBoard(){
+        boardPrinter.printBoard(BoardsManager.getEmptyBoard());
+
+        assertEquals(BoardsManager.EMPTY_BOARD, printStream.getContent());
+    }
+
+    @Test
+    public void checkPrintCorrectnessForBoardNo1(){
+        boardPrinter.printBoard(BoardsManager.getBoardNo1());
+
+        assertEquals("Contents should be equals", BoardsManager.BOARD_1, printStream.getContent());
+    }
+
+
+    @Test
+    public void checkPrintCorrectnessForBoardNo2(){
+        boardPrinter.printBoard(BoardsManager.getBoardNo2());
+
+        assertEquals("Contents should be equals", BoardsManager.BOARD_2, printStream.getContent());
+    }
 }

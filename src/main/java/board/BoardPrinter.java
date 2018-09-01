@@ -24,7 +24,7 @@ public class BoardPrinter {
         Collection<Collection<Boolean>> boardList = board.getBoardList();
         for (Collection<Boolean> rows : boardList) {
             for (Boolean cellState : rows) {
-                out.print(getHumanForCellState(cellState) + " ");
+                out.print(getHumanForCellState(cellState));
             }
             out.println();
         }
