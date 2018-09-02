@@ -12,10 +12,11 @@ public class Board {
 
 
     public Board(Collection<Collection<Boolean>> boardList) {
-        this(boardList, 0);
+        this(boardList, 1);
     }
 
     public Board(Collection<Collection<Boolean>> boardList, int round) {
+        if (round < 1) throw new IllegalArgumentException("round should be over 0");
         this.boardList = boardList;
         this.round = round;
     }
