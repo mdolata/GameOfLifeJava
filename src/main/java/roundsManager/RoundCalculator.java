@@ -58,8 +58,58 @@ public class RoundCalculator {
     }
 
     //TODO neighbor counter
-    private int countAliveNeighbor(Boolean[][] array, int i, int j) {
-        return 0;
+    /*
+        1 | 2 | 3
+        4 | c | 6
+        7 | 8 | 9
+     */
+    public int countAliveNeighbor(Boolean[][] array, int i, int j) {
+        int counter = 0;
+        int maxRow = array.length-1;
+        int maxColumn = array[0].length-1;
+        int row ;
+        int column ;
+        //1
+        row = (i - 1 < 0) ? maxRow : i - 1;
+        column = (j - 1 < 0) ? maxColumn : j - 1;
+        counter += array[row][column] ? 1 : 0;
+
+        //2
+        row = (i - 1 < 0) ? maxRow : i - 1;
+        column = j;
+        counter += array[row][column] ? 1 : 0;
+
+        //3
+        row = (i - 1 < 0) ? maxRow : i - 1;
+        column = (j + 1 > maxColumn) ? 0 : j + 1;
+        counter += array[row][column] ? 1 : 0;
+
+        //4
+        row = i;
+        column = (j - 1 < 0) ? maxColumn : j - 1;
+        counter += array[row][column] ? 1 : 0;
+
+        //6
+        row = i;
+        column = (j + 1 > maxColumn) ? 0 : j + 1;
+        counter += array[row][column] ? 1 : 0;
+
+        //7
+        row = (i + 1 > maxRow) ? 0 : i + 1;
+        column = (j - 1 < 0) ? maxColumn : j - 1;
+        counter += array[row][column] ? 1 : 0;
+
+        //8
+        row = (i + 1 > maxRow) ? 0 : i + 1;
+        column = j;
+        counter += array[row][column] ? 1 : 0;
+
+        //9
+        row = (i + 1 > maxRow) ? 0 : i + 1;
+        column = (j + 1 > maxColumn) ? 0 : j + 1;
+        counter += array[row][column] ? 1 : 0;
+
+        return counter;
     }
 
     private Boolean[][] create2dArrayFromList(ImmutableList<ImmutableList<Boolean>> boardList) {
