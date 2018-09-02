@@ -36,9 +36,4 @@ public class BoardTest {
     public void shouldThrowExceptionWhenRoundIsLessThanOne(){
         new Board(boardList, 0);
     }
-
-    @Test
-    public void checkBoardsImmutability(){
-
-    }
 }
