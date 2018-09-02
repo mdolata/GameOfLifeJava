@@ -1,27 +1,27 @@
 package board;
 
-import java.util.Collection;
+import com.google.common.collect.ImmutableList;
 
 /*
 Represents board game in console
  */
 public class Board {
 
-    private final Collection<Collection<Boolean>> boardList;
+    private final ImmutableList<ImmutableList<Boolean>> boardList;
     private final int round;
 
 
-    public Board(Collection<Collection<Boolean>> boardList) {
+    public Board(ImmutableList<ImmutableList<Boolean>> boardList) {
         this(boardList, 1);
     }
 
-    public Board(Collection<Collection<Boolean>> boardList, int round) {
+    public Board(ImmutableList<ImmutableList<Boolean>> boardList, int round) {
         if (round < 1) throw new IllegalArgumentException("round should be over 0");
         this.boardList = boardList;
         this.round = round;
     }
 
-    public Collection<Collection<Boolean>> getBoardList() {
+    public ImmutableList<ImmutableList<Boolean>> getBoardList() {
         return boardList;
     }
 

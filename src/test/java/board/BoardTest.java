@@ -1,16 +1,16 @@
 package board;
 
 import board.Utils.BoardsManager;
+import com.google.common.collect.ImmutableList;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.Collection;
-
 import static org.junit.Assert.assertEquals;
+
 
 public class BoardTest {
 
-    private static Collection<Collection<Boolean>> boardList;
+    private static ImmutableList<ImmutableList<Boolean>> boardList;
 
     @BeforeClass
     public static void setUp(){

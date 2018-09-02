@@ -1,7 +1,6 @@
 package board;
 
 import java.io.PrintStream;
-import java.util.Collection;
 
 public class BoardPrinter {
 
@@ -21,13 +20,10 @@ public class BoardPrinter {
     }
 
     public void printBoard(Board board){
-        Collection<Collection<Boolean>> boardList = board.getBoardList();
-        for (Collection<Boolean> rows : boardList) {
-            for (Boolean cellState : rows) {
-                out.print(getHumanForCellState(cellState));
-            }
+        board.getBoardList().forEach(row -> {
+            row.forEach(cell -> out.print(getHumanForCellState(cell)));
             out.println();
-        }
+        });
     }
 
     private String getHumanForCellState(Boolean state) {
