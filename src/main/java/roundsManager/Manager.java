@@ -31,4 +31,12 @@ public class Manager {
     private void setLastKnownBoard(Board lastKnownBoard) {
         this.lastKnownBoard = lastKnownBoard;
     }
+
+    public List<Board> getBoardList() {
+        return boardList;
+    }
+
+    public Board getLastKnownBoard() {
+        return lastKnownBoard;
+    }
 }
