@@ -1,12 +1,14 @@
 import board.Board;
 import board.BoardPrinter;
 import com.google.common.collect.ImmutableList;
+import org.reflections.Reflections;
 import properties.PropertyHaving;
 import roundsManager.Manager;
 import roundsManager.RoundCalculator;
 
 import java.io.*;
 import java.util.Properties;
+import java.util.Set;
 
 
 public class MainApp {
@@ -25,6 +27,17 @@ public class MainApp {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        Reflections reflections = new Reflections("board");
+        Set<Class<? extends PropertyHaving>> subTypesOf = reflections.getSubTypesOf(PropertyHaving.class);
+        subTypesOf.forEach(aClass -> System.out.println(aClass.getSimpleName()));
+
+        subTypesOf.forEach(aClass -> ImmutableList
+                                        .copyOf(aClass.getDeclaredFields())
+                                        .stream()
+                                        .filter(field -> field.getType().equals(String.class))
+
+                                        .forEach(field -> System.out.println(field.getName()+ " " + prop.getProperty(field.getName().toLowerCase(), ""))));
 
 
     }
