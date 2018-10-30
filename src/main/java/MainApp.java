@@ -1,6 +1,7 @@
 import board.Board;
 import board.BoardPrinter;
 import com.google.common.collect.ImmutableList;
+import properties.PropertyHaving;
 import roundsManager.Manager;
 import roundsManager.RoundCalculator;
 
@@ -15,8 +16,8 @@ public class MainApp {
     }
 
     private static void loadProperties() {
+        Properties prop = new Properties();
         try (InputStream resourceAsStream = MainApp.class.getResourceAsStream("/application.properties")){
-            Properties prop = new Properties();
             prop.load(resourceAsStream);
 
             prop.forEach((k, v) -> System.out.println(k + " ->" + v + "<-"));
@@ -24,6 +25,8 @@ public class MainApp {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
     public static void demo(){

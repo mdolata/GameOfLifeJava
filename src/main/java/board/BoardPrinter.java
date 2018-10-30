@@ -1,6 +1,6 @@
 package board;
 
-import Properties.PropertyHaving;
+import properties.PropertyHaving;
 
 import java.io.PrintStream;
 
