@@ -10,19 +10,17 @@ import java.util.Properties;
 
 public class MainApp {
     public static void main(String[] args){
-        //loadProperties();
-        demo();
+        loadProperties();
+        //demo();
     }
 
-    private  void loadProperties() {
-        Properties properties = new Properties();
+    private static void loadProperties() {
+        try (InputStream resourceAsStream = MainApp.class.getResourceAsStream("/application.properties")){
+            Properties prop = new Properties();
+            prop.load(resourceAsStream);
 
-        try(InputStream input = new FileInputStream("application.properties")){
+            prop.forEach((k, v) -> System.out.println(k + " ->" + v + "<-"));
 
-            properties.load(input);
-            properties.forEach((k, v) -> System.out.println(k + " -> " + v));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

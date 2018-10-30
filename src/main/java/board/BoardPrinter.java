@@ -1,13 +1,15 @@
 package board;
 
+import Properties.PropertyHaving;
+
 import java.io.PrintStream;
 
-public class BoardPrinter {
+public class BoardPrinter implements PropertyHaving {
 
     //TODO create load constants from properties file
-    private final String LIVE_CELL = "#";
+    private static final String LIVE_CELL = "#";
     //TODO create load constants from properties file
-    private final String DEATH_CELL = " ";
+    private static final String DEATH_CELL = " ";
 
     private final PrintStream out;
 
@@ -15,7 +17,7 @@ public class BoardPrinter {
         this.out = System.out;
     }
 
-    public BoardPrinter(PrintStream out) {
+    BoardPrinter(PrintStream out) {
         this.out = out;
     }
 
