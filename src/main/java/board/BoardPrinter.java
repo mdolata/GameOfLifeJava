@@ -5,9 +5,9 @@ import java.io.PrintStream;
 public class BoardPrinter {
 
     //TODO create load constants from properties file
-    private static final String LIVE_CELL = "#";
+    private final String LIVE_CELL = "#";
     //TODO create load constants from properties file
-    private static final String DEATH_CELL = " ";
+    private final String DEATH_CELL = " ";
 
     private final PrintStream out;
 

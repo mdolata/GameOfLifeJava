@@ -4,9 +4,31 @@ import com.google.common.collect.ImmutableList;
 import roundsManager.Manager;
 import roundsManager.RoundCalculator;
 
+import java.io.*;
+import java.util.Properties;
+
 
 public class MainApp {
     public static void main(String[] args){
+        //loadProperties();
+        demo();
+    }
+
+    private  void loadProperties() {
+        Properties properties = new Properties();
+
+        try(InputStream input = new FileInputStream("application.properties")){
+
+            properties.load(input);
+            properties.forEach((k, v) -> System.out.println(k + " -> " + v));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void demo(){
         Board board = getBoardNo3();
         RoundCalculator roundCalculator = new RoundCalculator();
 
