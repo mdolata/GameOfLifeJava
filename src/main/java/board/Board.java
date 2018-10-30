@@ -28,4 +28,21 @@ public class Board {
     public int getRound() {
         return round;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Board board = (Board) o;
+
+        return round == board.round && boardList.equals(board.boardList);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = boardList.hashCode();
+        result = 31 * result + round;
+        return result;
+    }
 }

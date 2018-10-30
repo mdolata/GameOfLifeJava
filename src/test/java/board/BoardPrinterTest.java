@@ -34,11 +34,17 @@ public class BoardPrinterTest {
         assertEquals("Contents should be equals", BoardsManager.BOARD_1, printStream.getContent());
     }
 
-
     @Test
     public void checkPrintCorrectnessForBoardNo2(){
         boardPrinter.printBoard(BoardsManager.getBoardNo2());
 
         assertEquals("Contents should be equals", BoardsManager.BOARD_2, printStream.getContent());
+    }
+
+    @Test
+    public void checkPrintCorrectnessForBoardNo3(){
+        boardPrinter.printBoard(BoardsManager.getBoardNo3());
+
+        assertEquals("Contents should be equals", BoardsManager.BOARD_3, printStream.getContent());
     }
 }
