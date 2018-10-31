@@ -1,20 +1,18 @@
 package com.mdolat.gameoflife.utils;
 
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.mdolat.gameoflife.MainApp;
-import org.reflections.Reflections;
-import com.mdolat.gameoflife.properties.PropertyHaving;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.List;
 import java.util.Properties;
-import java.util.Set;
 
 public class LoadProperties {
 
-    public static void loadProperties(String propertiesFile) {
+    public static ImmutableMap<String, String> loadProperties(String propertiesFile, List<String> fields) {
         if (propertiesFile == null){
             propertiesFile = "/application.properties";
         }
@@ -37,20 +35,9 @@ public class LoadProperties {
             e.printStackTrace();
         }
 
-        Reflections reflections = new Reflections("board");
-        Set<Class<? extends PropertyHaving>> subTypesOf = reflections.getSubTypesOf(PropertyHaving.class);
-        subTypesOf.forEach(aClass -> System.out.println(aClass.getSimpleName()));
 
-        subTypesOf.forEach(aClass -> ImmutableList
-                                        .copyOf(aClass.getDeclaredFields())
-                                        .stream()
-                                        .filter(field -> field.getType().equals(String.class))
 
-                                        .forEach(field -> {
-                                            String value = prop.getProperty(field.getName().toLowerCase(), "");
-                                            setFinalStatic(field, value);
-                                        }));
-
+        return null;
 
     }
 
