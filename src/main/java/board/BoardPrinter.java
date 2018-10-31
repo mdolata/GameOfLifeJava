@@ -6,6 +6,10 @@ import java.io.PrintStream;
 
 public class BoardPrinter implements PropertyHaving {
 
+    static {
+        //LoadProperties.loadProperties();
+
+    }
     //TODO create load constants from properties file
     private static final String LIVE_CELL = "#";
     //TODO create load constants from properties file
