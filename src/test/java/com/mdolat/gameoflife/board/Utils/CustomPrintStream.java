@@ -1,4 +1,4 @@
-package board.Utils;
+package com.mdolat.gameoflife.board.Utils;
 
 import java.io.OutputStream;
 import java.io.PrintStream;

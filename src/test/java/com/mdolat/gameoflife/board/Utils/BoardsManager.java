@@ -1,6 +1,6 @@
-package board.Utils;
+package com.mdolat.gameoflife.board.Utils;
 
-import board.Board;
+import com.mdolat.gameoflife.board.Board;
 import com.google.common.collect.ImmutableList;
 
 public class BoardsManager {

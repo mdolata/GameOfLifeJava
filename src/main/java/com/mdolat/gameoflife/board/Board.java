@@ -1,9 +1,9 @@
-package board;
+package com.mdolat.gameoflife.board;
 
 import com.google.common.collect.ImmutableList;
 
 /*
-Represents board game in console
+Represents com.mdolat.gameoflife.board game in console
  */
 public class Board {
 
