@@ -1,19 +1,21 @@
 package com.mdolat.gameoflife.board;
 
-import properties.PropertyHaving;
+import com.mdolat.gameoflife.properties.PropertyHaving;
+import com.mdolat.gameoflife.utils.LoadProperties;
 
 import java.io.PrintStream;
 
 public class BoardPrinter implements PropertyHaving {
 
     static {
-        //LoadProperties.loadProperties();
-
+        LoadProperties.loadProperties("application.properties");
+        LIVE_CELL = "#";
+        DEATH_CELL = " ";
     }
-    //TODO create load constants from properties file
-    private static final String LIVE_CELL = "#";
-    //TODO create load constants from properties file
-    private static final String DEATH_CELL = " ";
+    //TODO create load constants from com.mdolat.gameoflife.properties file
+    private static final String LIVE_CELL;
+    //TODO create load constants from com.mdolat.gameoflife.properties file
+    private static final String DEATH_CELL;
 
     private final PrintStream out;
 

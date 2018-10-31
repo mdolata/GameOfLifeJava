@@ -1,8 +1,9 @@
-package utils;
+package com.mdolat.gameoflife.utils;
 
 import com.google.common.collect.ImmutableList;
+import com.mdolat.gameoflife.MainApp;
 import org.reflections.Reflections;
-import properties.PropertyHaving;
+import com.mdolat.gameoflife.properties.PropertyHaving;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +14,7 @@ import java.util.Set;
 
 public class LoadProperties {
 
-    static void loadProperties(String propertiesFile) {
+    public static void loadProperties(String propertiesFile) {
         if (propertiesFile == null){
             propertiesFile = "/application.properties";
         }
@@ -27,7 +28,7 @@ public class LoadProperties {
                 return 0;
             }
         };
-        try (InputStream resourceAsStream = input){//MainApp.class.getResourceAsStream(propertiesFile)){
+        try (InputStream resourceAsStream = MainApp.class.getResourceAsStream(propertiesFile)){
             prop.load(resourceAsStream);
 
             prop.forEach((k, v) -> System.out.println(k + " ->" + v + "<-"));

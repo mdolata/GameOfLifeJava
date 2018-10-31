@@ -1,3 +1,3 @@
-package properties;
+package com.mdolat.gameoflife.properties;
 
 public interface PropertyHaving {}
