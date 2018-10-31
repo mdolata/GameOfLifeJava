@@ -24,7 +24,7 @@ public class BoardPrinter implements PropertyHaving {
         this.out = System.out;
     }
 
-    BoardPrinter(PrintStream out) {
+    public BoardPrinter(PrintStream out) {
         this.out = out;
     }
 
@@ -35,7 +35,7 @@ public class BoardPrinter implements PropertyHaving {
         });
     }
 
-    private String getHumanForCellState(Boolean state) {
+    public String getHumanForCellState(Boolean state) {
         return (state) ? LIVE_CELL : DEATH_CELL;
     }
 }
