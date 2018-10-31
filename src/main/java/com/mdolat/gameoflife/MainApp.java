@@ -1,48 +1,14 @@
-import board.Board;
-import board.BoardPrinter;
-import com.google.common.collect.ImmutableList;
-import org.reflections.Reflections;
-import properties.PropertyHaving;
-import roundsManager.Manager;
-import roundsManager.RoundCalculator;
+package com.mdolat.gameoflife;
 
-import java.io.*;
-import java.util.Properties;
-import java.util.Set;
+import com.mdolat.gameoflife.board.Board;
+import com.mdolat.gameoflife.board.BoardPrinter;
+import com.google.common.collect.ImmutableList;
+import com.mdolat.gameoflife.roundsManager.Manager;
+import com.mdolat.gameoflife.roundsManager.RoundCalculator;
 
 
 public class MainApp {
     public static void main(String[] args){
-        loadProperties();
-        //demo();
-    }
-
-    private static void loadProperties() {
-        Properties prop = new Properties();
-        try (InputStream resourceAsStream = MainApp.class.getResourceAsStream("/application.properties")){
-            prop.load(resourceAsStream);
-
-            prop.forEach((k, v) -> System.out.println(k + " ->" + v + "<-"));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Reflections reflections = new Reflections("board");
-        Set<Class<? extends PropertyHaving>> subTypesOf = reflections.getSubTypesOf(PropertyHaving.class);
-        subTypesOf.forEach(aClass -> System.out.println(aClass.getSimpleName()));
-
-        subTypesOf.forEach(aClass -> ImmutableList
-                                        .copyOf(aClass.getDeclaredFields())
-                                        .stream()
-                                        .filter(field -> field.getType().equals(String.class))
-
-                                        .forEach(field -> System.out.println(field.getName()+ " " + prop.getProperty(field.getName().toLowerCase(), ""))));
-
-
-    }
-
-    public static void demo(){
         Board board = getBoardNo3();
         RoundCalculator roundCalculator = new RoundCalculator();
 

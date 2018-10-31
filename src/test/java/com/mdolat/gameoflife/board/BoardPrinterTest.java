@@ -1,8 +1,8 @@
-package board;
+package com.mdolat.gameoflife.board;
 
-import board.Utils.BoardsManager;
-import board.Utils.CustomOutputStream;
-import board.Utils.CustomPrintStream;
+import com.mdolat.gameoflife.board.Utils.BoardsManager;
+import com.mdolat.gameoflife.board.Utils.CustomOutputStream;
+import com.mdolat.gameoflife.board.Utils.CustomPrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
