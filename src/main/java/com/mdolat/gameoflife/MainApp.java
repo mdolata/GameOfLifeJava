@@ -1,8 +1,10 @@
-import board.Board;
-import board.BoardPrinter;
+package com.mdolat.gameoflife;
+
+import com.mdolat.gameoflife.board.Board;
+import com.mdolat.gameoflife.board.BoardPrinter;
 import com.google.common.collect.ImmutableList;
-import roundsManager.Manager;
-import roundsManager.RoundCalculator;
+import com.mdolat.gameoflife.roundsManager.Manager;
+import com.mdolat.gameoflife.roundsManager.RoundCalculator;
 
 
 public class MainApp {

@@ -1,6 +1,6 @@
-package roundsManager;
+package com.mdolat.gameoflife.roundsManager;
 
-import board.Board;
+import com.mdolat.gameoflife.board.Board;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class Manager {
     private Board lastKnownBoard;
 
     public Manager(Board initialBoard, RoundCalculator calculator) {
-        if (initialBoard.getRound() != 1) throw new IllegalArgumentException("initial board should has round no 1");
+        if (initialBoard.getRound() != 1) throw new IllegalArgumentException("initial com.mdolat.gameoflife.board should has round no 1");
         this.calculator = calculator;
         boardList = new ArrayList<>();
         addNewBoard(initialBoard);

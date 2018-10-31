@@ -1,8 +1,8 @@
-package roundsManager;
+package com.mdolat.gameoflife.roundsManager;
 
-import board.Board;
-import board.BoardValidation;
-import board.Utils.BoardsManager;
+import com.mdolat.gameoflife.board.Board;
+import com.mdolat.gameoflife.board.BoardValidation;
+import com.mdolat.gameoflife.board.Utils.BoardsManager;
 import org.junit.Test;
 
 import java.util.Collection;

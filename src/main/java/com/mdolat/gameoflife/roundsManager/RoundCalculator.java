@@ -1,6 +1,6 @@
-package roundsManager;
+package com.mdolat.gameoflife.roundsManager;
 
-import board.Board;
+import com.mdolat.gameoflife.board.Board;
 import com.google.common.collect.ImmutableList;
 
 public class RoundCalculator {
