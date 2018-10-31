@@ -11,13 +11,11 @@ public class BoardPrinter implements PropertyHaving {
 
     static {
         ImmutableList<String> fields = ImmutableList.of("LIVE_CELL", "DEATH_CELL");
-        ImmutableMap<String, String> properties = LoadProperties.loadProperties("application.properties", fields);
+        ImmutableMap<String, String> properties = LoadProperties.loadProperties("/application.properties", fields);
         LIVE_CELL = properties.get("LIVE_CELL");
-        DEATH_CELL = properties.get("DEATH_CELL");;
+        DEATH_CELL = properties.get("DEATH_CELL");
     }
-    //TODO create load constants from com.mdolat.gameoflife.properties file
     private static final String LIVE_CELL;
-    //TODO create load constants from com.mdolat.gameoflife.properties file
     private static final String DEATH_CELL;
 
     private final PrintStream out;

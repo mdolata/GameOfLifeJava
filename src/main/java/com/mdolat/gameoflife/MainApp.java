@@ -5,10 +5,15 @@ import com.mdolat.gameoflife.board.BoardPrinter;
 import com.google.common.collect.ImmutableList;
 import com.mdolat.gameoflife.roundsManager.Manager;
 import com.mdolat.gameoflife.roundsManager.RoundCalculator;
+import com.mdolat.gameoflife.utils.LoadProperties;
 
 
 public class MainApp {
     public static void main(String[] args){
+
+        //TODO remove it, just for static order
+        new LoadProperties();
+
         Board board = getBoardNo3();
         RoundCalculator roundCalculator = new RoundCalculator();
 
