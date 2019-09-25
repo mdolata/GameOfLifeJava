@@ -30,7 +30,12 @@ public class BoardPrinter implements PropertyHaving {
         });
     }
 
-    public String getHumanForCellState(Boolean state) {
+    public void printActualRound(Board board) {
+        out.print(board.getRound());
+        out.println();
+    }
+
+    private String getHumanForCellState(Boolean state) {
         return (state) ? LIVE_CELL : DEATH_CELL;
     }
 }

@@ -4,7 +4,7 @@ public class Symbols {
     private final String deathCell;
     private final String liveCell;
 
-    public Symbols(String deathCell, String liveCell) {
+    public Symbols(String liveCell, String deathCell) {
         this.deathCell = deathCell;
         this.liveCell = liveCell;
     }

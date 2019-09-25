@@ -2,7 +2,6 @@ package com.mdolat.gameoflife.properties;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import com.mdolat.gameoflife.properties.PropertiesLoader;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

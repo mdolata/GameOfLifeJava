@@ -17,7 +17,7 @@ public class BoardPrinterTest {
     @Before
     public void setUp() {
         printStream = new CustomPrintStream(new CustomOutputStream());
-        boardPrinter = new BoardPrinter(new Symbols("0", "#"), printStream);
+        boardPrinter = new BoardPrinter(new Symbols("#", "0"), printStream);
     }
 
     @Test

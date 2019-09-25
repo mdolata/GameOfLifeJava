@@ -14,12 +14,10 @@ public class MainApp {
     public static void main(String[] args){
 
         ImmutableMap<String, String> properties = PropertiesLoader.loadPropertiesFrom("/application.properties");
-        String liveCell= properties.get("live_cell");
-        String deathCell = properties.get("death_cell");
 
-        Symbols symbols = new Symbols(liveCell, deathCell);
+        Symbols symbols = new Symbols(properties.get("live_cell"), properties.get("death_cell"));
 
-        Board board = getBoardNo3();
+        Board board = createInitialBoard();
         RoundCalculator roundCalculator = new RoundCalculator();
 
         BoardPrinter printer = new BoardPrinter(symbols);
@@ -27,19 +25,23 @@ public class MainApp {
 
         for (int i = 0; i < 10; i++) {
             Board board1 = manager.getLastKnownBoard();
-            System.out.println(board1.getRound());
+            printer.printActualRound(board);
             printer.printBoard(board1);
 
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            sleep();
             manager.calculateNextRound();
         }
     }
 
-    private static Board getBoardNo3() {
+    private static void sleep() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static Board createInitialBoard() {
         Boolean[] booleans1 = {false, false, false, false, false, false, false, false};
         Boolean[] booleans2 = {false, false, false, true, true, true, false, false};
         Boolean[] booleans3 = {false, false, false, false, false, false, false, false};
