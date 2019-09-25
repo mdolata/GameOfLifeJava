@@ -1,6 +1,6 @@
 package com.mdolat.gameoflife.roundsManager;
 
-import com.mdolat.gameoflife.board.Utils.BoardsManager;
+import com.mdolat.gameoflife.testUtils.BoardsManager;
 import org.junit.Before;
 import org.junit.Test;
 

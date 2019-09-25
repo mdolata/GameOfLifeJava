@@ -3,12 +3,13 @@ package com.mdolat.gameoflife.roundsManager;
 import com.mdolat.gameoflife.board.Board;
 import com.google.common.collect.ImmutableList;
 
+//todo review needed
 public class RoundCalculator {
 
     public Board calculateNextRound(Board board) {
         Boolean[][] fromList = create2dArrayFromList(board.getBoardList());
         Boolean[][] resultArray = calculateVitalityForBoard(board, fromList);
-        return new Board(getListsFromArray(fromList, resultArray), board.getRound() + 1);
+        return Board.of(getListsFromArray(fromList, resultArray), board.getRound() + 1);
     }
 
     private Boolean[][] calculateVitalityForBoard(Board board, Boolean[][] fromList) {

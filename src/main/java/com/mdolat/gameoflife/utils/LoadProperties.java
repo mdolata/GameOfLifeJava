@@ -9,6 +9,7 @@ import java.util.Properties;
 
 public class LoadProperties {
 
+    //todo read properties only once and cache result
     public static ImmutableMap<String, String> loadProperties(String propertiesFile, List<String> fields) {
         if (propertiesFile == null) {
             propertiesFile = "/application.properties";

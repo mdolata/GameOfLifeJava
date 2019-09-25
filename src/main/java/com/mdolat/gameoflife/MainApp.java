@@ -43,6 +43,6 @@ public class MainApp {
         ImmutableList<Boolean> booleanslst2 = ImmutableList.copyOf(booleans2);
         ImmutableList<Boolean> booleanslst3 = ImmutableList.copyOf(booleans3);
         ImmutableList<Boolean> booleanslst4 = ImmutableList.copyOf(booleans4);
-        return new Board(ImmutableList.of(booleanslst1, booleanslst2, booleanslst3, booleanslst4));
+        return Board.of(ImmutableList.of(booleanslst1, booleanslst2, booleanslst3, booleanslst4));
     }
 }

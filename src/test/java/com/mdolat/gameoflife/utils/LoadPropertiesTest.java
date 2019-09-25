@@ -1,33 +1,21 @@
 package com.mdolat.gameoflife.utils;
 
-import com.mdolat.gameoflife.board.BoardPrinter;
-import com.mdolat.gameoflife.board.Utils.BoardsManager;
-import com.mdolat.gameoflife.board.Utils.CustomOutputStream;
-import com.mdolat.gameoflife.board.Utils.CustomPrintStream;
-import org.junit.Before;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class LoadPropertiesTest {
 
-    private BoardPrinter boardPrinter;
-    private CustomPrintStream printStream;
-
-    @Before
-    public void setUp(){
-        CustomOutputStream out = new CustomOutputStream();
-        printStream = new CustomPrintStream(out);
-        boardPrinter = new BoardPrinter(printStream);
-    }
-
     @Test
-    public void checkIfBoardPrinterFieldsAreSet(){
-        boardPrinter.printBoard(BoardsManager.getBoardNo1());
-        String content = printStream.getContent();
+    public void shouldLoadRequiredProperties() {
+        ImmutableList<String> properties = ImmutableList.of("LIVE_CELL", "DEATH_CELL");
+        ImmutableMap<String, String> loadedProperties = LoadProperties.loadProperties("/application.properties", properties);
 
-        assertTrue(content.contains(boardPrinter.getHumanForCellState(true)));
-        assertFalse(content.contains(boardPrinter.getHumanForCellState(false)));
+        for (String property : properties) {
+            assertTrue(loadedProperties.containsKey(property));
+        }
     }
 
 }

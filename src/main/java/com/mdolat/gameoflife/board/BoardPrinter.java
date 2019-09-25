@@ -9,6 +9,7 @@ import java.io.PrintStream;
 
 public class BoardPrinter implements PropertyHaving {
 
+    //todo pass cell by constructor
     static {
         ImmutableList<String> fields = ImmutableList.of("LIVE_CELL", "DEATH_CELL");
         ImmutableMap<String, String> properties = LoadProperties.loadProperties("/application.properties", fields);
