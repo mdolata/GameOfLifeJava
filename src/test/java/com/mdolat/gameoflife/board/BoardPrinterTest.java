@@ -1,48 +1,48 @@
 package com.mdolat.gameoflife.board;
 
-import com.mdolat.gameoflife.board.Utils.BoardsManager;
-import com.mdolat.gameoflife.board.Utils.CustomOutputStream;
-import com.mdolat.gameoflife.board.Utils.CustomPrintStream;
+import com.mdolat.gameoflife.utils.BoardsManager;
+import com.mdolat.gameoflife.utils.CustomOutputStream;
+import com.mdolat.gameoflife.utils.CustomPrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+//todo parametrize tests
 public class BoardPrinterTest {
 
     private BoardPrinter boardPrinter;
     private CustomPrintStream printStream;
 
     @Before
-    public void setUp(){
-        CustomOutputStream out = new CustomOutputStream();
-        printStream = new CustomPrintStream(out);
-        boardPrinter = new BoardPrinter(printStream);
+    public void setUp() {
+        printStream = new CustomPrintStream(new CustomOutputStream());
+        boardPrinter = new BoardPrinter(new Symbols("#", "0"), printStream);
     }
 
     @Test
-    public void checkPrintCorrectnessForEmptyBoard(){
+    public void checkPrintCorrectnessForEmptyBoard() {
         boardPrinter.printBoard(BoardsManager.getEmptyBoard());
 
         assertEquals(BoardsManager.EMPTY_BOARD, printStream.getContent());
     }
 
     @Test
-    public void checkPrintCorrectnessForBoardNo1(){
+    public void checkPrintCorrectnessForBoardNo1() {
         boardPrinter.printBoard(BoardsManager.getBoardNo1());
 
         assertEquals("Contents should be equals", BoardsManager.BOARD_1, printStream.getContent());
     }
 
     @Test
-    public void checkPrintCorrectnessForBoardNo2(){
+    public void checkPrintCorrectnessForBoardNo2() {
         boardPrinter.printBoard(BoardsManager.getBoardNo2());
 
         assertEquals("Contents should be equals", BoardsManager.BOARD_2, printStream.getContent());
     }
 
     @Test
-    public void checkPrintCorrectnessForBoardNo3(){
+    public void checkPrintCorrectnessForBoardNo3() {
         boardPrinter.printBoard(BoardsManager.getBoardNo3());
 
         assertEquals("Contents should be equals", BoardsManager.BOARD_3, printStream.getContent());

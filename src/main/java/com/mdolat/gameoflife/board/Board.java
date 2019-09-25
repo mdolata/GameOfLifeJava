@@ -10,13 +10,17 @@ public class Board {
     private final ImmutableList<ImmutableList<Boolean>> boardList;
     private final int round;
 
-
-    public Board(ImmutableList<ImmutableList<Boolean>> boardList) {
-        this(boardList, 1);
+    public static Board of(ImmutableList<ImmutableList<Boolean>> boardList) {
+        return new Board(boardList, 1);
     }
 
-    public Board(ImmutableList<ImmutableList<Boolean>> boardList, int round) {
+    //todo replace exception with Either
+    public static Board of(ImmutableList<ImmutableList<Boolean>> boardList, int round) {
         if (round < 1) throw new IllegalArgumentException("round should be over 0");
+        return new Board(boardList, round);
+    }
+
+    private Board(ImmutableList<ImmutableList<Boolean>> boardList, int round) {
         this.boardList = boardList;
         this.round = round;
     }

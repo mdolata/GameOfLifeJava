@@ -2,7 +2,7 @@ package com.mdolat.gameoflife.roundsManager;
 
 import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.board.BoardValidation;
-import com.mdolat.gameoflife.board.Utils.BoardsManager;
+import com.mdolat.gameoflife.utils.BoardsManager;
 import org.junit.Test;
 
 import java.util.Collection;
@@ -11,16 +11,30 @@ import static org.junit.Assert.*;
 
 public class RoundCalculatorTest {
 
-    //TODO refactor this test
-    //split to few smaller tests
     @Test
-    public void calculateBoardIsValidAndHasTheSameSizeAfter(){
+    public void boardShouldBeValidInNextRound() {
         RoundCalculator roundCalculator = new RoundCalculator();
         Board boardNo3 = BoardsManager.getBoardNo3();
         Board receivedBoard = roundCalculator.calculateNextRound(boardNo3);
 
         assertTrue(BoardValidation.isValid(receivedBoard));
+    }
+
+    @Test
+    public void roundInNextRoundShouldBeBiggerByOne() {
+        RoundCalculator roundCalculator = new RoundCalculator();
+        Board boardNo3 = BoardsManager.getBoardNo3();
+        Board receivedBoard = roundCalculator.calculateNextRound(boardNo3);
+
         assertEquals(boardNo3.getRound() + 1, receivedBoard.getRound());
+    }
+
+    @Test
+    public void boardSizeShouldBeTheSameInNextRound() {
+        RoundCalculator roundCalculator = new RoundCalculator();
+        Board boardNo3 = BoardsManager.getBoardNo3();
+        Board receivedBoard = roundCalculator.calculateNextRound(boardNo3);
+
         assertEquals(boardNo3.getBoardList().size(), receivedBoard.getBoardList().size());
 
         int boardNo3InnerListSize = getInnerListSize(boardNo3);
@@ -42,7 +56,7 @@ public class RoundCalculatorTest {
         assertEquals(expected, count);
     }
 
-
+    //todo parametrize tests
     @Test
     public void checkNeighbor1(){
         RoundCalculator roundCalculator = new RoundCalculator();
