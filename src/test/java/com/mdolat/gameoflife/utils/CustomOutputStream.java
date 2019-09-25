@@ -1,4 +1,4 @@
-package com.mdolat.gameoflife.testUtils;
+package com.mdolat.gameoflife.utils;
 
 import java.io.OutputStream;
 

@@ -1,32 +1,26 @@
 package com.mdolat.gameoflife.board;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.mdolat.gameoflife.properties.PropertyHaving;
-import com.mdolat.gameoflife.utils.LoadProperties;
 
 import java.io.PrintStream;
 
 public class BoardPrinter implements PropertyHaving {
 
-    //todo pass cell by constructor
-    static {
-        ImmutableList<String> fields = ImmutableList.of("LIVE_CELL", "DEATH_CELL");
-        ImmutableMap<String, String> properties = LoadProperties.loadProperties("/application.properties", fields);
-        LIVE_CELL = properties.get("LIVE_CELL");
-        DEATH_CELL = properties.get("DEATH_CELL");
-    }
-    private static final String LIVE_CELL;
-    private static final String DEATH_CELL;
+    private final String LIVE_CELL;
+    private final String DEATH_CELL;
 
     private final PrintStream out;
 
-    public BoardPrinter() {
+    public BoardPrinter(Symbols symbols) {
         this.out = System.out;
+        LIVE_CELL = symbols.getLiveCell();
+        DEATH_CELL = symbols.getDeathCell();
     }
 
-    public BoardPrinter(PrintStream out) {
+    public BoardPrinter(Symbols symbols, PrintStream out) {
         this.out = out;
+        LIVE_CELL = symbols.getLiveCell();
+        DEATH_CELL = symbols.getDeathCell();
     }
 
     public void printBoard(Board board){

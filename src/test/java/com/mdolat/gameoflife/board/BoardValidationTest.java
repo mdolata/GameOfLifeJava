@@ -1,6 +1,6 @@
 package com.mdolat.gameoflife.board;
 
-import com.mdolat.gameoflife.testUtils.BoardsManager;
+import com.mdolat.gameoflife.utils.BoardsManager;
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 

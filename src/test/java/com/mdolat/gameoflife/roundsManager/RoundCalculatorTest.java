@@ -2,7 +2,7 @@ package com.mdolat.gameoflife.roundsManager;
 
 import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.board.BoardValidation;
-import com.mdolat.gameoflife.testUtils.BoardsManager;
+import com.mdolat.gameoflife.utils.BoardsManager;
 import org.junit.Test;
 
 import java.util.Collection;

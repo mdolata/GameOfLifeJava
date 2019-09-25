@@ -1,4 +1,4 @@
-package com.mdolat.gameoflife.testUtils;
+package com.mdolat.gameoflife.utils;
 
 import com.mdolat.gameoflife.board.Board;
 import com.google.common.collect.ImmutableList;

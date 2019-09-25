@@ -1,8 +1,8 @@
 package com.mdolat.gameoflife.board;
 
-import com.mdolat.gameoflife.testUtils.BoardsManager;
-import com.mdolat.gameoflife.testUtils.CustomOutputStream;
-import com.mdolat.gameoflife.testUtils.CustomPrintStream;
+import com.mdolat.gameoflife.utils.BoardsManager;
+import com.mdolat.gameoflife.utils.CustomOutputStream;
+import com.mdolat.gameoflife.utils.CustomPrintStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,9 +16,8 @@ public class BoardPrinterTest {
 
     @Before
     public void setUp() {
-        CustomOutputStream out = new CustomOutputStream();
-        printStream = new CustomPrintStream(out);
-        boardPrinter = new BoardPrinter(printStream);
+        printStream = new CustomPrintStream(new CustomOutputStream());
+        boardPrinter = new BoardPrinter(new Symbols("0", "#"), printStream);
     }
 
     @Test

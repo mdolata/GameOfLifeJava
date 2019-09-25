@@ -1,23 +1,28 @@
 package com.mdolat.gameoflife;
 
+import com.google.common.collect.ImmutableMap;
 import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.board.BoardPrinter;
 import com.google.common.collect.ImmutableList;
+import com.mdolat.gameoflife.board.Symbols;
 import com.mdolat.gameoflife.roundsManager.Manager;
 import com.mdolat.gameoflife.roundsManager.RoundCalculator;
-import com.mdolat.gameoflife.utils.LoadProperties;
+import com.mdolat.gameoflife.properties.PropertiesLoader;
 
 
 public class MainApp {
     public static void main(String[] args){
 
-        //TODO remove it, just for static order
-        new LoadProperties();
+        ImmutableMap<String, String> properties = PropertiesLoader.loadPropertiesFrom("/application.properties");
+        String liveCell= properties.get("live_cell");
+        String deathCell = properties.get("death_cell");
+
+        Symbols symbols = new Symbols(liveCell, deathCell);
 
         Board board = getBoardNo3();
         RoundCalculator roundCalculator = new RoundCalculator();
 
-        BoardPrinter printer = new BoardPrinter();
+        BoardPrinter printer = new BoardPrinter(symbols);
         Manager manager = new Manager(board, roundCalculator);
 
         for (int i = 0; i < 10; i++) {
