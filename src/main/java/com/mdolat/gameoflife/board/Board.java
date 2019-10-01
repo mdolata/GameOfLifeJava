@@ -2,9 +2,6 @@ package com.mdolat.gameoflife.board;
 
 import io.vavr.collection.List;
 
-/*
-Represents com.mdolat.gameoflife.board game in console
- */
 public class Board {
 
     private final List<List<Boolean>> boardList;

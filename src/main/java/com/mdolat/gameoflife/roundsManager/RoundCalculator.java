@@ -1,7 +1,6 @@
 package com.mdolat.gameoflife.roundsManager;
 
 import com.mdolat.gameoflife.board.Board;
-import com.google.common.collect.ImmutableList;
 import io.vavr.collection.List;
 
 //todo review needed

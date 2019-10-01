@@ -8,9 +8,8 @@ public class BoardValidation {
     public static boolean isValid(Board board) {
         return EXPECTED_DISTINCT_SIZES_COUNT == board
                 .getBoardList()
-                .toJavaStream()
-                .mapToInt(Traversable::size)
-                .distinct()
-                .count();
+                .toStream()
+                .distinctBy(Traversable::size)
+                .count(integer -> true);
     }
 }

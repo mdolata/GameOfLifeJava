@@ -1,7 +1,6 @@
 package com.mdolat.gameoflife.properties;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
+import io.vavr.collection.List;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,12 +9,10 @@ public class PropertiesLoaderTest {
 
     @Test
     public void shouldLoadRequiredProperties() {
-        ImmutableList<String> properties = ImmutableList.of("live_cell", "death_cell");
-        ImmutableMap<String, String> loadedProperties = PropertiesLoader.loadProperties();
+        List<String> properties = List.of("live_cell", "death_cell");
 
         for (String property : properties) {
-            assertTrue(loadedProperties.containsKey(property));
-            assertNotEquals("Not defined value", PropertiesLoader.getProperty(property));
+            assertTrue(PropertiesLoader.getProperty(property).isDefined());
         }
     }
 

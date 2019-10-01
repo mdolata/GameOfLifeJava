@@ -1,6 +1,5 @@
 package com.mdolat.gameoflife;
 
-import com.google.common.collect.ImmutableMap;
 import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.board.BoardPrinter;
 import com.mdolat.gameoflife.board.Symbols;
@@ -9,14 +8,16 @@ import com.mdolat.gameoflife.roundsManager.RoundCalculator;
 import com.mdolat.gameoflife.properties.PropertiesLoader;
 import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
 import io.vavr.collection.List;
+import io.vavr.control.Option;
 
 
 public class MainApp {
     public static void main(String[] args){
 
-        ImmutableMap<String, String> properties = PropertiesLoader.loadPropertiesFrom("/application.properties");
+        Option<String> live_cell = PropertiesLoader.getProperty("live_cell");
+        Option<String> death_cell = PropertiesLoader.getProperty("death_cell");
 
-        Symbols symbols = new Symbols(properties.get("live_cell"), properties.get("death_cell"));
+        Symbols symbols = new Symbols(live_cell.get(), death_cell.get());
 
         Board board = createInitialBoard();
         RoundCalculator roundCalculator = new RoundCalculator(new ClassicConway());
