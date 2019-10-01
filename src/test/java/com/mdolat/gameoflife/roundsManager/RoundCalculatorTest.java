@@ -4,6 +4,7 @@ import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.board.BoardValidation;
 import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
 import com.mdolat.gameoflife.utils.BoardsManager;
+import io.vavr.collection.Traversable;
 import org.junit.Test;
 
 import java.util.Collection;
@@ -45,6 +46,6 @@ public class RoundCalculatorTest {
     }
 
     private int getInnerListSize(Board boardNo3) {
-        return boardNo3.getBoardList().stream().mapToInt(Collection::size).findFirst().orElse(0);
+        return boardNo3.getBoardList().toJavaStream().mapToInt(Traversable::size).findFirst().orElse(0);
     }
 }

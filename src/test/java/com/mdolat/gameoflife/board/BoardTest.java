@@ -1,7 +1,7 @@
 package com.mdolat.gameoflife.board;
 
 import com.mdolat.gameoflife.utils.BoardsManager;
-import com.google.common.collect.ImmutableList;
+import io.vavr.collection.List;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BoardTest {
 
-    private ImmutableList<ImmutableList<Boolean>> boardList = BoardsManager.getEmptyBoard().getBoardList();
+    private List<List<Boolean>> boardList = BoardsManager.getEmptyBoard().getBoardList();
 
     @Test
     public void shouldCreateBoardWithFirstRound() {

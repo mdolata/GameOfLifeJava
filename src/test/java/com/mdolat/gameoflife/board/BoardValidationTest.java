@@ -1,7 +1,7 @@
 package com.mdolat.gameoflife.board;
 
 import com.mdolat.gameoflife.utils.BoardsManager;
-import com.google.common.collect.ImmutableList;
+import io.vavr.collection.List;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -21,9 +21,9 @@ public class BoardValidationTest {
     public void shouldReturnFalseForIncorrectBoard() {
         Boolean[] booleans1 = {true, false, true, false, true, false, true, false};
         Boolean[] booleans2 = {true, false, true, false, true, false, true};
-        ImmutableList<Boolean> list1 = ImmutableList.copyOf(booleans1);
-        ImmutableList<Boolean> list2 = ImmutableList.copyOf(booleans2);
-        Board board = Board.of(ImmutableList.of(list1, list2));
+        List<Boolean> list1 = List.of(booleans1);
+        List<Boolean> list2 = List.of(booleans2);
+        Board board = Board.of(List.of(list1, list2));
 
         assertFalse(BoardValidation.isValid(board));
     }

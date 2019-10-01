@@ -3,12 +3,12 @@ package com.mdolat.gameoflife;
 import com.google.common.collect.ImmutableMap;
 import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.board.BoardPrinter;
-import com.google.common.collect.ImmutableList;
 import com.mdolat.gameoflife.board.Symbols;
 import com.mdolat.gameoflife.roundsManager.Manager;
 import com.mdolat.gameoflife.roundsManager.RoundCalculator;
 import com.mdolat.gameoflife.properties.PropertiesLoader;
 import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
+import io.vavr.collection.List;
 
 
 public class MainApp {
@@ -47,10 +47,10 @@ public class MainApp {
         Boolean[] booleans2 = {false, false, false, true, true, true, false, false};
         Boolean[] booleans3 = {false, false, false, false, false, false, false, false};
         Boolean[] booleans4 = {false, false, false, false, false, false, false, false};
-        ImmutableList<Boolean> booleanslst1 = ImmutableList.copyOf(booleans1);
-        ImmutableList<Boolean> booleanslst2 = ImmutableList.copyOf(booleans2);
-        ImmutableList<Boolean> booleanslst3 = ImmutableList.copyOf(booleans3);
-        ImmutableList<Boolean> booleanslst4 = ImmutableList.copyOf(booleans4);
-        return Board.of(ImmutableList.of(booleanslst1, booleanslst2, booleanslst3, booleanslst4));
+        List<Boolean> booleanslst1 = List.of(booleans1);
+        List<Boolean> booleanslst2 = List.of(booleans2);
+        List<Boolean> booleanslst3 = List.of(booleans3);
+        List<Boolean> booleanslst4 = List.of(booleans4);
+        return Board.of(List.of(booleanslst1, booleanslst2, booleanslst3, booleanslst4));
     }
 }

@@ -1,7 +1,7 @@
 package com.mdolat.gameoflife.utils;
 
 import com.mdolat.gameoflife.board.Board;
-import com.google.common.collect.ImmutableList;
+import io.vavr.collection.List;
 
 public class BoardsManager {
 
@@ -15,22 +15,22 @@ public class BoardsManager {
             "#0#0#0#0\n";
 
     public static Board getEmptyBoard() {
-        return Board.of(ImmutableList.of(ImmutableList.of()));
+        return Board.of(List.of(List.of()));
     }
 
     public static Board getBoardNo1() {
-        ImmutableList<Boolean> booleans = ImmutableList.of(true, true);
-        return Board.of(ImmutableList.of(booleans, booleans));
+        List<Boolean> booleans = List.of(true, true);
+        return Board.of(List.of(booleans, booleans));
     }
 
     public static Board getBoardNo2() {
-        ImmutableList<Boolean> booleans = ImmutableList.of(true, false);
-        return Board.of(ImmutableList.of(booleans, booleans));
+        List<Boolean> booleans = List.of(true, false);
+        return Board.of(List.of(booleans, booleans));
     }
 
     public static Board getBoardNo3() {
         Boolean[] booleans1 = {true, false, true, false, true, false, true, false};
-        ImmutableList<Boolean> booleans = ImmutableList.copyOf(booleans1);
-        return Board.of(ImmutableList.of(booleans, booleans, booleans, booleans));
+        List<Boolean> booleans = List.of(booleans1);
+        return Board.of(List.of(booleans, booleans, booleans, booleans));
     }
 }

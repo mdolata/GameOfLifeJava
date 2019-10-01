@@ -2,6 +2,7 @@ package com.mdolat.gameoflife.roundsManager;
 
 import com.mdolat.gameoflife.board.Board;
 import com.google.common.collect.ImmutableList;
+import io.vavr.collection.List;
 
 //todo review needed
 public class RoundCalculator {
@@ -29,20 +30,20 @@ public class RoundCalculator {
         return resultArray;
     }
 
-    private ImmutableList<ImmutableList<Boolean>> getListsFromArray(Boolean[][] resultArray) {
-        ImmutableList.Builder<ImmutableList<Boolean>> boardBuilder = ImmutableList.builderWithExpectedSize(resultArray.length);
+    private List<List<Boolean>> getListsFromArray(Boolean[][] resultArray) {
+        List<List<Boolean>> boardBuilder = List.empty();
         for (Boolean[] aResultArray : resultArray) {
-            boardBuilder = boardBuilder.add(ImmutableList.copyOf(aResultArray));
+            boardBuilder = boardBuilder.append(List.of(aResultArray));
         }
 
-        return boardBuilder.build();
+        return boardBuilder;
     }
 
     private Boolean checkVitality(Boolean[][] array, int i, int j) {
         return gameStrategy.checkVitality(array, i, j);
     }
 
-    private Boolean[][] create2dArrayFromList(ImmutableList<ImmutableList<Boolean>> boardList) {
+    private Boolean[][] create2dArrayFromList(List<List<Boolean>> boardList) {
         Boolean[][] booleans;
         booleans = getEmpty2DArray(boardList.size(), boardList.get(0).size());
 
@@ -56,7 +57,7 @@ public class RoundCalculator {
         return new Boolean[size1][size2];
     }
 
-    private Boolean[] createArray(ImmutableList<Boolean> list) {
+    private Boolean[] createArray(List<Boolean> list) {
         Boolean[] array = new Boolean[list.size()];
 
         for (int i = 0; i < list.size(); i++) {

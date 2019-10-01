@@ -1,31 +1,31 @@
 package com.mdolat.gameoflife.board;
 
-import com.google.common.collect.ImmutableList;
+import io.vavr.collection.List;
 
 /*
 Represents com.mdolat.gameoflife.board game in console
  */
 public class Board {
 
-    private final ImmutableList<ImmutableList<Boolean>> boardList;
+    private final List<List<Boolean>> boardList;
     private final int round;
 
-    public static Board of(ImmutableList<ImmutableList<Boolean>> boardList) {
+    public static Board of(List<List<Boolean>> boardList) {
         return new Board(boardList, 1);
     }
 
     //todo replace exception with Either
-    public static Board of(ImmutableList<ImmutableList<Boolean>> boardList, int round) {
+    public static Board of(List<List<Boolean>> boardList, int round) {
         if (round < 1) throw new IllegalArgumentException("round should be over 0");
         return new Board(boardList, round);
     }
 
-    private Board(ImmutableList<ImmutableList<Boolean>> boardList, int round) {
+    private Board(List<List<Boolean>> boardList, int round) {
         this.boardList = boardList;
         this.round = round;
     }
 
-    public ImmutableList<ImmutableList<Boolean>> getBoardList() {
+    public List<List<Boolean>> getBoardList() {
         return boardList;
     }
 
