@@ -1,22 +1,23 @@
 package com.mdolat.gameoflife;
 
-import com.google.common.collect.ImmutableMap;
 import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.board.BoardPrinter;
-import com.google.common.collect.ImmutableList;
 import com.mdolat.gameoflife.board.Symbols;
 import com.mdolat.gameoflife.roundsManager.Manager;
 import com.mdolat.gameoflife.roundsManager.RoundCalculator;
 import com.mdolat.gameoflife.properties.PropertiesLoader;
 import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
+import io.vavr.collection.List;
+import io.vavr.control.Option;
 
 
 public class MainApp {
     public static void main(String[] args){
 
-        ImmutableMap<String, String> properties = PropertiesLoader.loadPropertiesFrom("/application.properties");
+        Option<String> live_cell = PropertiesLoader.getProperty("live_cell");
+        Option<String> death_cell = PropertiesLoader.getProperty("death_cell");
 
-        Symbols symbols = new Symbols(properties.get("live_cell"), properties.get("death_cell"));
+        Symbols symbols = new Symbols(live_cell.get(), death_cell.get());
 
         Board board = createInitialBoard();
         RoundCalculator roundCalculator = new RoundCalculator(new ClassicConway());
@@ -43,14 +44,10 @@ public class MainApp {
     }
 
     private static Board createInitialBoard() {
-        Boolean[] booleans1 = {false, false, false, false, false, false, false, false};
-        Boolean[] booleans2 = {false, false, false, true, true, true, false, false};
-        Boolean[] booleans3 = {false, false, false, false, false, false, false, false};
-        Boolean[] booleans4 = {false, false, false, false, false, false, false, false};
-        ImmutableList<Boolean> booleanslst1 = ImmutableList.copyOf(booleans1);
-        ImmutableList<Boolean> booleanslst2 = ImmutableList.copyOf(booleans2);
-        ImmutableList<Boolean> booleanslst3 = ImmutableList.copyOf(booleans3);
-        ImmutableList<Boolean> booleanslst4 = ImmutableList.copyOf(booleans4);
-        return Board.of(ImmutableList.of(booleanslst1, booleanslst2, booleanslst3, booleanslst4));
+        List<Boolean> booleanList1 = List.of(false, false, false, false, false, false, false, false);
+        List<Boolean> booleanList2 = List.of(false, false, false, true, true, true, false, false);
+        List<Boolean> booleanList3 = List.of(false, false, false, false, false, false, false, false);
+        List<Boolean> booleanList4 = List.of(false, false, false, false, false, false, false, false);
+        return Board.of(List.of(booleanList1, booleanList2, booleanList3, booleanList4)).get();
     }
 }

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ClassicConwayTest {
 
-    ClassicConway gameStrategy = new ClassicConway();
+    private final ClassicConway gameStrategy = new ClassicConway();
 
     @Test
     public void checkNeighborAllDeath(){

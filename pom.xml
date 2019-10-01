@@ -20,9 +20,9 @@
             <version>RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>26.0-jre</version>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>0.10.2</version>
         </dependency>
         <dependency>
             <groupId>org.reflections</groupId>
