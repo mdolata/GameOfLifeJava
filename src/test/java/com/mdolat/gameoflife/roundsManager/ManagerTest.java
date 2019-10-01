@@ -1,5 +1,6 @@
 package com.mdolat.gameoflife.roundsManager;
 
+import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
 import com.mdolat.gameoflife.utils.BoardsManager;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,7 @@ public class ManagerTest {
 
     @Before
     public void setUp(){
-        this.roundCalculator = new RoundCalculator();
+        this.roundCalculator = new RoundCalculator(new ClassicConway());
     }
 
     @Test
