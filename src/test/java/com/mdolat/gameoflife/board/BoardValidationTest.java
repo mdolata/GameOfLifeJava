@@ -2,6 +2,7 @@ package com.mdolat.gameoflife.board;
 
 import com.mdolat.gameoflife.utils.BoardsManager;
 import io.vavr.collection.List;
+import io.vavr.control.Either;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
@@ -23,8 +24,8 @@ public class BoardValidationTest {
         Boolean[] booleans2 = {true, false, true, false, true, false, true};
         List<Boolean> list1 = List.of(booleans1);
         List<Boolean> list2 = List.of(booleans2);
-        Board board = Board.of(List.of(list1, list2));
+        Either<ErrorMessage, Board> board = Board.of(List.of(list1, list2));
 
-        assertFalse(BoardValidation.isValid(board));
+        assertFalse(BoardValidation.isValid(board.get()));
     }
 }

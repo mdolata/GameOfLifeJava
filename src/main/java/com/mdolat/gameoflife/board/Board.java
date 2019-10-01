@@ -1,20 +1,20 @@
 package com.mdolat.gameoflife.board;
 
 import io.vavr.collection.List;
+import io.vavr.control.Either;
 
 public class Board {
 
     private final List<List<Boolean>> boardList;
     private final int round;
 
-    public static Board of(List<List<Boolean>> boardList) {
-        return new Board(boardList, 1);
+    public static Either<ErrorMessage, Board> of(List<List<Boolean>> boardList) {
+        return of(boardList, 1);
     }
 
-    //todo replace exception with Either
-    public static Board of(List<List<Boolean>> boardList, int round) {
-        if (round < 1) throw new IllegalArgumentException("round should be over 0");
-        return new Board(boardList, round);
+    public static Either<ErrorMessage, Board> of(List<List<Boolean>> boardList, int round) {
+        if (round < 1) return Either.left(ErrorMessage.of("round should be over 0"));
+        return Either.right(new Board(boardList, round));
     }
 
     private Board(List<List<Boolean>> boardList, int round) {

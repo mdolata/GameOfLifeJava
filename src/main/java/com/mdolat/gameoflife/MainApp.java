@@ -44,14 +44,10 @@ public class MainApp {
     }
 
     private static Board createInitialBoard() {
-        Boolean[] booleans1 = {false, false, false, false, false, false, false, false};
-        Boolean[] booleans2 = {false, false, false, true, true, true, false, false};
-        Boolean[] booleans3 = {false, false, false, false, false, false, false, false};
-        Boolean[] booleans4 = {false, false, false, false, false, false, false, false};
-        List<Boolean> booleanslst1 = List.of(booleans1);
-        List<Boolean> booleanslst2 = List.of(booleans2);
-        List<Boolean> booleanslst3 = List.of(booleans3);
-        List<Boolean> booleanslst4 = List.of(booleans4);
-        return Board.of(List.of(booleanslst1, booleanslst2, booleanslst3, booleanslst4));
+        List<Boolean> booleanList1 = List.of(false, false, false, false, false, false, false, false);
+        List<Boolean> booleanList2 = List.of(false, false, false, true, true, true, false, false);
+        List<Boolean> booleanList3 = List.of(false, false, false, false, false, false, false, false);
+        List<Boolean> booleanList4 = List.of(false, false, false, false, false, false, false, false);
+        return Board.of(List.of(booleanList1, booleanList2, booleanList3, booleanList4)).get();
     }
 }

@@ -1,7 +1,9 @@
 package com.mdolat.gameoflife.roundsManager;
 
 import com.mdolat.gameoflife.board.Board;
+import com.mdolat.gameoflife.board.ErrorMessage;
 import io.vavr.collection.List;
+import io.vavr.control.Either;
 
 //todo review needed
 public class RoundCalculator {
@@ -12,7 +14,7 @@ public class RoundCalculator {
         this.gameStrategy = gameStrategy;
     }
 
-    public Board calculateNextRound(Board board) {
+    public Either<ErrorMessage, Board> calculateNextRound(Board board) {
         Boolean[][] fromList = create2dArrayFromList(board.getBoardList());
         Boolean[][] resultArray = calculateVitalityForBoard(fromList);
         return Board.of(getListsFromArray(resultArray), board.getRound() + 1);
