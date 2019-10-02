@@ -39,11 +39,4 @@ public class Board {
 
         return round == board.round && boardList.equals(board.boardList);
     }
-
-    @Override
-    public int hashCode() {
-        int result = boardList.hashCode();
-        result = 31 * result + round;
-        return result;
-    }
 }

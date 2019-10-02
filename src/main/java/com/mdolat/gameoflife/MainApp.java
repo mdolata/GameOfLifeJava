@@ -10,7 +10,7 @@ import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
 import io.vavr.collection.List;
 import io.vavr.control.Option;
 
-
+//todo general: imporve test according to Pitest report
 public class MainApp {
     public static void main(String[] args){
 
@@ -22,7 +22,7 @@ public class MainApp {
         Board board = createInitialBoard();
         RoundCalculator roundCalculator = new RoundCalculator(new ClassicConway());
 
-        BoardPrinter printer = new BoardPrinter(symbols);
+        BoardPrinter printer = new BoardPrinter(symbols, System.out);
         Manager manager = new Manager(board, roundCalculator);
 
         for (int i = 0; i < 10; i++) {
