@@ -10,7 +10,7 @@ import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
 import io.vavr.collection.List;
 import io.vavr.control.Option;
 
-
+//todo general: imporve test according to Pitest report
 public class MainApp {
     public static void main(String[] args){
 

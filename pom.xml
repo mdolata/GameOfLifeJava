@@ -29,6 +29,7 @@
             <artifactId>reflections</artifactId>
             <version>0.9.11</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -44,6 +45,11 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.4.10</version>
             </plugin>
         </plugins>
     </build>
