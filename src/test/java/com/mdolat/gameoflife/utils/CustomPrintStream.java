@@ -16,6 +16,10 @@ public class CustomPrintStream extends PrintStream {
         content += s;
     }
 
+    public void print(int i) {
+        content += String.valueOf(i);
+    }
+
     @Override
     public void println() {
         content += "\n";

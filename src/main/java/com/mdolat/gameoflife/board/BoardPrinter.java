@@ -11,12 +11,6 @@ public class BoardPrinter implements PropertyHaving {
 
     private final PrintStream out;
 
-    public BoardPrinter(Symbols symbols) {
-        this.out = System.out;
-        LIVE_CELL = symbols.getLiveCell();
-        DEATH_CELL = symbols.getDeathCell();
-    }
-
     public BoardPrinter(Symbols symbols, PrintStream out) {
         this.out = out;
         LIVE_CELL = symbols.getLiveCell();

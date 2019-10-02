@@ -47,4 +47,11 @@ public class BoardPrinterTest {
 
         assertEquals("Contents should be equals", BoardsManager.BOARD_3, printStream.getContent());
     }
+
+    @Test
+    public void checkPrintRoundCorrectnessForBoardNo3() {
+        boardPrinter.printActualRound(BoardsManager.getBoardNo3());
+
+        assertEquals("Contents should be equals", "1\n", printStream.getContent());
+    }
 }

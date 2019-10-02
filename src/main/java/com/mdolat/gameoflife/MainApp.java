@@ -22,7 +22,7 @@ public class MainApp {
         Board board = createInitialBoard();
         RoundCalculator roundCalculator = new RoundCalculator(new ClassicConway());
 
-        BoardPrinter printer = new BoardPrinter(symbols);
+        BoardPrinter printer = new BoardPrinter(symbols, System.out);
         Manager manager = new Manager(board, roundCalculator);
 
         for (int i = 0; i < 10; i++) {
