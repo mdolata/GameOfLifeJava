@@ -7,6 +7,7 @@ import com.mdolat.gameoflife.roundsManager.Manager;
 import com.mdolat.gameoflife.roundsManager.RoundCalculator;
 import com.mdolat.gameoflife.properties.PropertiesLoader;
 import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
+import com.mdolat.gameoflife.roundsManager.strategies.FunctionalStrategy;
 import io.vavr.collection.List;
 import io.vavr.control.Option;
 
@@ -20,7 +21,7 @@ public class MainApp {
         Symbols symbols = new Symbols(live_cell.get(), death_cell.get());
 
         Board board = createInitialBoard();
-        RoundCalculator roundCalculator = new RoundCalculator(new ClassicConway());
+        RoundCalculator roundCalculator = new RoundCalculator(new FunctionalStrategy());
 
         BoardPrinter printer = new BoardPrinter(symbols, System.out);
         Manager manager = new Manager(board, roundCalculator);
