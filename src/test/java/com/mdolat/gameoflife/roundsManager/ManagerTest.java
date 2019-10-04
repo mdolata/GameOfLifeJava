@@ -1,5 +1,6 @@
 package com.mdolat.gameoflife.roundsManager;
 
+import com.mdolat.gameoflife.board.Board;
 import com.mdolat.gameoflife.roundsManager.strategies.ClassicConway;
 import com.mdolat.gameoflife.utils.BoardsManager;
 import org.junit.Before;
@@ -14,6 +15,14 @@ public class ManagerTest {
     @Before
     public void setUp(){
         this.roundCalculator = new RoundCalculator(new ClassicConway());
+    }
+
+    @Test
+    public void shouldVerifyBoards() {
+        Board boardOne = BoardsManager.getEmptyBoard();
+        Board boardTwo = null;
+        assertEquals(boardOne, boardOne);
+        assertNotEquals(boardOne, boardTwo);
     }
 
     @Test
